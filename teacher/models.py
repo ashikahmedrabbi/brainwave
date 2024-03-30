@@ -1,14 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
 from student.models import Student
-# Create your models here.
+
 
 class teachingArea(models.Model):
     name = models.CharField(max_length = 30)
     slug = models.SlugField(max_length = 40)
     def __str__(self):
         return self.name
-class professionalExperience(models.Model):
+class Designation(models.Model):
     name = models.CharField(max_length = 30)
     slug = models.SlugField(max_length = 40)
     def __str__(self):
@@ -23,7 +23,7 @@ class AvailableTime(models.Model):
 class Teacher(models.Model):
     user = models.OneToOneField(User, on_delete = models.CASCADE)
     image = models.ImageField(upload_to="doctor/images/")
-    professional_experience = models.ManyToManyField(professionalExperience)
+    designation = models.ManyToManyField(Designation)
     teaching_area =  models.ManyToManyField(teachingArea)
     available_time = models.ManyToManyField(AvailableTime)
     fee = models.IntegerField()
