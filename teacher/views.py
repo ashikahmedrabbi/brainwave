@@ -29,16 +29,16 @@ class AvailableTimeViewset(viewsets.ModelViewSet):
     serializer_class = serializers.AvailableTimeSerializer
     filter_backends = [AvailableTimeForSpecificTeacher]
 
-# class TeacherPagination(pagination.PageNumberPagination):
-#     page_size = 1 # items per page
-#     page_size_query_param = page_size
-#     max_page_size = 100
+class TeacherPagination(pagination.PageNumberPagination):
+    page_size = 1 # items per page
+    page_size_query_param = page_size
+    max_page_size = 100
 
 class TeacherViewset(viewsets.ModelViewSet):
     queryset = models.Teacher.objects.all()
     serializer_class = serializers.teacherSerializer
     filter_backends = [filters.SearchFilter]
-    # pagination_class = TeacherPagination
+    pagination_class = TeacherPagination
     search_fields = ['user__first_name', 'user__email', 'designation__name', 'specialization__name']
     
 class ReviewViewset(viewsets.ModelViewSet):
