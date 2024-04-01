@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-kpd*c(eyapln3rs8g9u2ju+w1$z-^#3t@4xwb&i64kzlt@g)6e
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ['https://brainwave-zc9o.onrender.com','https://*.127.0.0.1:5500']
+CSRF_TRUSTED_ORIGINS = ['https://brainwave-zc9o.onrender.com','https://*.127.0.0.1']
 
 
 # Application definition
