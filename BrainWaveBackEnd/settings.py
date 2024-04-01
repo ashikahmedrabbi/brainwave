@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'demoClass',
     'service',
     'contact_us',
+    'corsheaders',
     
 
 ]
