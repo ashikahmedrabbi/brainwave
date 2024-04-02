@@ -18,9 +18,9 @@ class DesignationViewset(viewsets.ModelViewSet):
 
 class AvailableTimeForSpecificTeacher(filters.BaseFilterBackend):
     def filter_queryset(self, request, query_set, view):
-        doctor_id = request.query_params.get("doctor_id")
-        if doctor_id:
-            return query_set.filter(doctor = doctor_id)
+        teacher_id = request.query_params.get("teacher_id")
+        if teacher_id:
+            return query_set.filter(teacher = teacher_id)
         return query_set
 
 class AvailableTimeViewset(viewsets.ModelViewSet):
@@ -30,7 +30,7 @@ class AvailableTimeViewset(viewsets.ModelViewSet):
     filter_backends = [AvailableTimeForSpecificTeacher]
 
 class TeacherPagination(pagination.PageNumberPagination):
-    page_size = 1 # items per page
+    page_size = 3 # items per page
     page_size_query_param = page_size
     max_page_size = 100
 
@@ -39,7 +39,7 @@ class TeacherViewset(viewsets.ModelViewSet):
     serializer_class = serializers.teacherSerializer
     filter_backends = [filters.SearchFilter]
     pagination_class = TeacherPagination
-    search_fields = ['user__first_name', 'user__email', 'designation__name', 'specialization__name']
+    search_fields = ['user__first_name', 'user__email', 'designation__name', 'teaching_area__name']
     
 class ReviewViewset(viewsets.ModelViewSet):
     
