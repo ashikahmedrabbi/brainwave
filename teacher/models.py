@@ -47,4 +47,4 @@ class Review(models.Model):
     rating = models.CharField(choices = STAR_CHOICES, max_length = 10)
     
     def __str__(self):
-        return f"Student : {self.reviewer.user.first_name} ; Teacher {self.doctor.user.first_name}"
+        return f"Student : {self.reviewer.user.first_name} ; Teacher {self.teacher.user.first_name}"
