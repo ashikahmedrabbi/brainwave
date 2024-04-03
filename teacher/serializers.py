@@ -29,7 +29,7 @@ class AvailableTimeSerializer(serializers.ModelSerializer):
 class ReviewSerializer(serializers.ModelSerializer):
     reviewer = serializers.StringRelatedField(many=False)
     teacher = serializers.StringRelatedField(many=False)
-    image = serializers.ImageField(source='student.image')
+    
     class Meta:
         model = models.Review
         fields = '__all__'
