@@ -2,8 +2,13 @@ from rest_framework import serializers
 from . import models
 
 class teacherSerializer(serializers.ModelSerializer):
+    full_name = serializers.SerializerMethodField()
+
+    def get_full_name(self, obj):
+        return f"{obj.user.first_name} {obj.user.last_name}"
     
     user = serializers.StringRelatedField(many=False)
+
     teaching_area = serializers.StringRelatedField(many=True)
     designation = serializers.StringRelatedField(many=True)
     available_time = serializers.StringRelatedField(many=True)
