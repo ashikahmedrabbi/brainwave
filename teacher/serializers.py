@@ -2,6 +2,7 @@ from rest_framework import serializers
 from . import models
 
 class teacherSerializer(serializers.ModelSerializer):
+    
     user = serializers.StringRelatedField(many=False)
     teaching_area = serializers.StringRelatedField(many=True)
     designation = serializers.StringRelatedField(many=True)
@@ -26,6 +27,8 @@ class AvailableTimeSerializer(serializers.ModelSerializer):
         fields = '__all__'
         
 class ReviewSerializer(serializers.ModelSerializer):
+    reviewer = serializers.StringRelatedField(many=False)
+    teacher = serializers.StringRelatedField(many=False)
     class Meta:
         model = models.Review
         fields = '__all__'
