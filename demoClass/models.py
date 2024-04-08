@@ -22,4 +22,4 @@ class DemoClass(models.Model):
     cancel = models.BooleanField(default = False)
     
     def __str__(self):
-        return f"Teacher : {self.doctor.user.first_name} , Student : {self.patient.user.first_name}"
+        return f"Teacher : {self.teacher.user.first_name} , Student : {self.student.user.first_name}"

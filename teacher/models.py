@@ -22,7 +22,7 @@ class AvailableTime(models.Model):
 
 class Teacher(models.Model):
     user = models.OneToOneField(User, on_delete = models.CASCADE)
-    image = models.ImageField(upload_to="doctor/images/")
+    image = models.ImageField(upload_to="teachers/images/")
     designation = models.ManyToManyField(Designation)
     teaching_area =  models.ManyToManyField(teachingArea)
     available_time = models.ManyToManyField(AvailableTime)
