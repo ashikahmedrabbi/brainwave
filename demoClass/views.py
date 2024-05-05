@@ -9,7 +9,7 @@ class demoClassViewSet(viewsets.ModelViewSet):
     
     # custom query kortechi
     def get_queryset(self):
-        queryset = super().get_queryset() # 7 no line ke niye aslam ba patient ke inherit korlam
+        queryset = super().get_queryset() 
         print(self.request.query_params)
         student_id = self.request.query_params.get('student_id')
         if student_id:
