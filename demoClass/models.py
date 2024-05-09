@@ -15,9 +15,9 @@ Class_TYPES = [
 class DemoClass(models.Model):
     student = models.ForeignKey(Student, on_delete = models.CASCADE)
     teacher = models.ForeignKey(Teacher, on_delete = models.CASCADE)
-    class_types = models.CharField(choices = Class_TYPES, max_length = 10)
-    class_status = models.CharField(choices = Class_STATUS, max_length = 10, default = "Pending")
-    Subject = models.TextField()
+    classTypes = models.CharField(choices = Class_TYPES, max_length = 10)
+    classStatus = models.CharField(choices = Class_STATUS, max_length = 10, default = "Pending")
+    subject = models.TextField()
     time = models.OneToOneField(AvailableTime, on_delete = models.CASCADE)
     cancel = models.BooleanField(default = False)
     
