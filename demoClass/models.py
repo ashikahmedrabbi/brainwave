@@ -18,7 +18,7 @@ class DemoClass(models.Model):
     classTypes = models.CharField(choices = Class_TYPES, max_length = 10)
     classStatus = models.CharField(choices = Class_STATUS, max_length = 10, default = "Pending")
     subject = models.TextField()
-    time = models.OneToOneField(AvailableTime, on_delete = models.CASCADE)
+    time = models.ForeignKey(AvailableTime, on_delete = models.CASCADE)
     cancel = models.BooleanField(default = False)
     
     def __str__(self):

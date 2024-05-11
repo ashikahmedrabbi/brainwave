@@ -42,7 +42,5 @@ class TeacherViewset(viewsets.ModelViewSet):
     search_fields = ['user__first_name', 'user__email', 'designation__name', 'teaching_area__name']
     
 class ReviewViewset(viewsets.ModelViewSet):
-    
     queryset = models.Review.objects.all()
-
     serializer_class = serializers.ReviewSerializer
