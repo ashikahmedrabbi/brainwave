@@ -30,7 +30,7 @@ class AvailableTimeViewset(viewsets.ModelViewSet):
     filter_backends = [AvailableTimeForSpecificTeacher]
 
 class TeacherPagination(pagination.PageNumberPagination):
-    page_size = 3 # items per page
+    page_size = 6 # items per page
     page_size_query_param = page_size
     max_page_size = 100
 
