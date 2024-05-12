@@ -31,7 +31,7 @@ class UserRegistrationApiView(APIView):
             print("token ", token)
             uid = urlsafe_base64_encode(force_bytes(user.pk))
             print("uid ", uid)
-            confirm_link = f"https://brainwave.onrender.com/student/active/{uid}/{token}"
+            confirm_link = f"https://brainwave-zc9o.onrender.com/student/active/{uid}/{token}"
             email_subject = "Confirm Your Email"
             email_body = render_to_string('confirm_email.html', {'confirm_link' : confirm_link})
             
@@ -80,6 +80,6 @@ class UserLogoutView(APIView):
     def get(self, request):
         request.user.auth_token.delete()
         logout(request)
-         # return redirect('login')
-        return Response({'success' : "logout successful"})
+        return redirect('login')
+        # return Response({'success' : "logout successful"})
         
